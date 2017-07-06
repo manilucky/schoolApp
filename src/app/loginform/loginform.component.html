@@ -1,0 +1,29 @@
+
+<div class="row">
+  <div class="col-md-5 col-lg-5 col-md-offset-3">
+    <h1>
+      Login to Your Account
+    </h1><br>
+    <form [formGroup]="UserForm" (ngSubmit)="handleSubmit()">
+      <div class="form-group">
+        <label for="Username">Username</label>
+        <input type="text" class="form-control" name="Username" placeholder="Username" formControlName="Username">
+        <div *ngIf="UserForm.controls['Username'].touched && UserForm.controls['Username'].invalid" >
+            Username filed is required!!!
+        </div> 
+      </div>
+      <div class="form-group">
+        <label for="Password">Password</label>
+        <input type="Password" class="form-control" name="Password" placeholder="Password" formControlName="Password">
+          <div *ngIf="UserForm.controls['Password'].touched && UserForm.controls['Password'].invalid" >
+              Password filed is required!!!
+          </div>
+      </div>
+        <button class="btn btn-primary" [disabled]="UserForm.invalid">SignIn</button>
+        <a href="/signupform">SignUp</a>
+    </form>
+      <div ng-message="errormessage" *ngIf="message">
+        Please provide valid login details
+      </div>
+  </div>
+</div>

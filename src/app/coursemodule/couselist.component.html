@@ -1,0 +1,39 @@
+
+<div class="row">
+  <!-- ******* Available Courses ******** -->
+  <div class="col-md-5 col-md-offset-1">
+    <h4>Available Courses</h4>
+      <div class="list-group courselist" *ngFor="let course of courses" >   
+        <div *ngIf="condition(course,2)">
+          <a routerlink="coursedetaillist" class="list-group-item" (click)="navigatetodetails(course)">
+            <img src="{{course.Picture}}"  alt="" height="50" width="50">
+              {{course.Course_Name}}<br/>
+              {{course.Description}}
+            <span class="badge">{{course.Cost}}$</span>
+          </a>
+        </div>
+      </div>
+  </div> 
+  <!-- ******* Registered courses ******** -->
+    <div class="col-md-5 col-md-offset-1">
+      <h4>Registered courses</h4>
+        <div class="list-group courselist" *ngFor="let course of courses" >  
+          <div *ngIf="condition(course,1)">
+            <a routerlink="coursedetaillist" class="list-group-item" (click)="navigatetodetails(course)">
+              <img src="{{course.Picture}}"  alt="" height="50" width="50">
+                {{course.Course_Name}}<br/>
+                {{course.Description}}
+              <span class="badge">{{course.Cost}}$</span>
+            </a>
+          </div>   
+        </div>
+    </div>
+    <div class="add" class="col-md-12 col-md-offset-1">     
+      <h3>
+        Join a new course
+      </h3>
+      <a>
+        <button (click)="navigatetoadd()" class="btn btn-primary">Add Course</button>
+      </a>
+    </div>
+</div>   

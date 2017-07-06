@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-md-5 col-lg-5 col-md-offset-2">
+    <h1>
+      SignUp to Your Account
+    </h1>
+      <form [formGroup]="signupForm">
+          <div class="form-group">
+            <label for="FirstName">FirstName</label>
+            <input type="text" class="form-control" name="FirstName" formControlName="FirstName">
+                <div *ngIf="signupForm.get('FirstName').touched && signupForm.get('FirstName').invalid"  >
+                  <div *ngIf="signupForm.get('FirstName').errors.required">
+                    Firstname is required!!!
+                  </div>
+                  <div *ngIf="!signupForm.get('FirstName').errors.required && signupForm.get('FirstName').invalid">
+                    Firstname is Invalid!!!
+                  </div>
+                </div>
+          </div>     
+          <div class="form-Group"> 
+            <label for="LastName">LastName</label>
+            <input type="LastName" class="form-control" name="LastName" formControlName="LastName">
+            <div *ngIf="signupForm.get('LastName').touched && signupForm.get('LastName').invalid" >
+              Lastname is required!!!
+            </div>
+          </div>
+          <div class="form-Group">
+            <label for="email">Current Email ID </label>
+            <input type="email" class="form-control" name="email" formControlName="email">
+            <div *ngIf="signupForm.get('email').touched && signupForm.get('email').invalid" >
+              Email filed is required!!!
+            </div>
+          </div>
+          <div class="form-Group">
+            <label for="Username">Create Username </label>
+            <input type="text" class="form-control" name="Username" formControlName="Username">
+            <div *ngIf="signupForm.get('Username').touched && signupForm.get('Username').invalid" >
+                <div *ngIf="signupForm.get('Username').errors.required"> 
+                  Username filed is required!!! 
+                </div>
+                <div *ngIf="!signupForm.get('Username').errors.required && signupForm.get('Username').invalid">
+                  Username entered is invalid!!!!!!
+                  Username must contain 3 to 15 charecters length includes letters(a-z), numbers(0-9) and underscores and dollor!!!
+                </div> 
+            </div>        
+          </div>
+          <div class="form-Group">
+            <label for="Password"> Create Password</label>
+            <input type="Password" class="form-control" name="Password" formControlName="Password">
+            <div *ngIf="signupForm.get('Password').touched && signupForm.get('Password').invalid">
+              <div *ngIf="signupForm.get('Password').errors.required"> 
+                Password filed is required!!! 
+              </div>
+              <div *ngIf="!signupForm.get('Password').errors.required && signupForm.get('Password').invalid">
+                password entered is invalid!!!!!!
+                Username must contain 3 to 15 charecters length includes letters(a-z), numbers(0-9) and underscores and dollor!!!
+              </div>
+            </div>
+          </div>
+          <div formGroupName="address">Address
+            <div class="form-Group">
+              <label for="City">City</label>
+              <input type="text" class="form-control" name="City" formControlName="City" >
+              <div *ngIf="signupForm.get('address').get('City').touched && signupForm.get('address').get('City').invalid">
+                    City is required!!!
+              </div>
+            </div>
+            <div class="form-Group">
+              <label for="State">State</label>
+              <input type="text" class="form-control" name="State" formControlName="State" >
+              <div *ngIf="signupForm.get('address').get('State').touched && signupForm.get('address').get('State').invalid">
+                State is required!!!
+              </div>
+            </div>
+            <div class="form-Group">
+              <label for="ZipCode">ZipCode</label>
+                <input type="text" class="form-control" name="ZipCode" formControlName="ZipCode" >
+                <div *ngIf="signupForm.get('address').get('ZipCode').touched && signupForm.get('address').get('ZipCode').invalid">
+                  ZipCode is required!!!
+                </div>
+            </div>
+          </div>
+            <div class="form-Group">Select Gender
+              <div class="radio" *ngFor="let g of Genders">
+                <input type="radio" formControlName="Gender" name="Gender" [value]="g">
+                <label>{{g}}</label>
+              </div>
+            </div>      
+              <button class="btn btn-primary"  (click)="navigatetosignup(signupForm)">SignUp</button>
+      </form>
+  </div>
+</div>

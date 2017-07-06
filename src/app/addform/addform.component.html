@@ -1,0 +1,69 @@
+<div class="row" class="col-md-10">
+		<label>Would you like to add a new course or Join a course</label><br/>
+		<button (click)="newcourse()"> Add a new course</button>
+		<button (click)="joincourse()">Join a course</button>
+	</div>
+	<!-- ********AddNewCourse *********** -->
+<div class="row" *ngIf="type0">
+  	<div class="col-md-4 col-lg-4 col-md-offset-2 ">
+		<h3>
+			Please Add a New Course
+		</h3>
+		<form [formGroup]="addNewCourse" (ngSubmit)="handleSubmit()">
+			<div class="form-group">
+				<label for="CourseName">CourseName</label>
+				<input type="text" class="form-control" name="CourseName"  formControlName="CourseName">
+			</div>
+			<div class="form-group">
+				<label for="ModuleID">ModuleID</label>
+				<input type="text" class="form-control" name="ModuleID"  formControlName="ModuleID">
+			</div>
+			<div class="form-group">
+				<label for="Description">Description</label>
+				<input type="text" class="form-control" name="Description"  formControlName="Description">
+			</div>
+			<div class="form-group">
+				<label for="Topic">Topic</label>
+				<input type="text" class="form-control" name="Topic"  formControlName="Topic">
+			</div>
+			<div class="form-group">
+				<label for="SubTopic">SubTopic</label>
+				<input type="text" class="form-control" name="SubTopic"  formControlName="SubTopic">
+			</div>
+			<div class="form-group">
+				<label for="Picture">Picture</label>
+				<input type="text" class="form-control" name="Picture"  formControlName="Picture">
+			</div>
+			<div class="form-group">
+				<label for="Seats">Seats</label>
+				<input type="text" class="form-control" name="Seats"  formControlName="Seats">
+			</div>
+			<div class="form-group">
+				<label for ="Cost">Cost</label>
+				<input type="text" class="form-control" name="Cost"  formControlName="Cost">
+			</div>
+			<div class="form-group">
+				<label for ="Prerequisites">Prerequisites</label>
+				<input type="text" class="form-control" name="Prerequisites"  formControlName="Prerequisites">
+			</div>
+				<button class="btn btn-primary" [disabled]="addNewCourse.invalid">Submit</button>
+		</form>
+	</div>
+</div>
+<!-- ********Join to Course *********** -->
+<div class="row" *ngIf="type1">
+	<div class="col-xs-12 col-md-8 col-md-offset-2">
+		<label>
+			Please select a Courese to join
+		</label>
+		<form [formGroup]="jCourse" (ngSubmit)="jointoSubmit()" >
+			<div>
+				<select name="joinD"  class="form-control" formControlName="joinD" class="list-group courselist" placeholder="Username">
+					<option value="">---Please select---</option>
+					<option *ngFor="let course of addCourseObj" [ngValue]="course" >{{course.Course_Name}}</option>
+				</select>
+			</div>
+				<button class="btn btn-primary" type="submit">Submit</button>
+		</form>
+	</div>
+</div>

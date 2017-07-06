@@ -1,0 +1,22 @@
+.custom-footer{
+    width:100%;
+    height: 100px;
+    background-color: #55757d;
+    position:absolute;
+    bottom:0;
+    left:0;
+    right : 0;
+    text-align: center;
+    padding: 15px;
+    font-size:20px;
+}
+.footer-content{
+    
+    font-size: 1.5em;
+    color: #780b0b;
+    font-style: italic;
+}
+.h4{
+    color: red;
+    padding: 10;
+}

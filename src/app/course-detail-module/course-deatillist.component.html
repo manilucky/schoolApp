@@ -1,0 +1,18 @@
+<div class= "row" class="col-md-10 col-lg-10 col-md-offset-1 ">     
+ 	<div class="list-group courselist" *ngFor="let cs of courses"> 
+		<div *ngIf="loaded">
+				<div class= "title" *ngIf="condition(cs.Module_ID)">
+					<h5>
+						Course Details
+					</h5>
+						<img src="{{cs.Picture}}" alt="" height="400" width="400">
+							<h3>{{cs.Course_Name}} </h3><br/>
+							{{cs.Description}}
+				</div> 
+					{{'Module: '+cs.Module_ID}}<br/>
+					{{'Topic: '+cs.Topic}}<br/>
+					{{'Subtopics: '+cs.SubTopic}}
+		</div>
+	</div>
+</div>
+
